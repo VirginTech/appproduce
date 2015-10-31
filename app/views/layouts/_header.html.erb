@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-header">
+    
+    <!--ロゴの表示-->
+    <%= link_to "アプリ自慢", root_path, id:"logo" %>
+    
+    <!--トグルボタンの設置（スマホの場合）-->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-content">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  
+  <div id="nav-content" class="collapse navbar-collapse">
+    <!--リンクのリスト メニューリスト-->
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "ユーザーログイン", '#' %></li>
+      <li><%= link_to "デヴェロッパーログイン", '#' %></li>
+    </ul>
+    
+  </div>
+</nav>
