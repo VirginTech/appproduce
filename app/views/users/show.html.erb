@@ -2,3 +2,7 @@
   <%= gravatar_for @user %>
   <%= @user.nickname %>
 </h1>
+
+<center>
+  <%= link_to "ログアウト", logout_path, method: "delete" %>
+</center>

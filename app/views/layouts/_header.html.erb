@@ -17,19 +17,21 @@
     <ul class="nav navbar-nav navbar-right">
       
       <%#ユーザーログイン判定 %>
-      <% if false %>
-        <li><%= link_to "ユーザーページ", '#' %></li>
+      <% if user_logged_in? %>
+        <li><%= link_to "ユーザーページ", current_user %></li>
       <% else %>
-        <li><%= link_to "ユーザーログイン", '#' %></li>
+        <li><%= link_to "ユーザーログイン", login_path %></li>
       <% end %>
-
-      <%#デベロッパーログイン判定 %>
-      <% if true %>
-        <li><%= link_to "デヴェロッパーページ", '#' %></li>
-      <% else %>
-        <li><%= link_to "デヴェロッパーログイン", '#' %></li>
+      
+      <% if !user_logged_in? %>
+        <%#デベロッパーログイン判定 %>
+        <% if true %>
+          <li><%= link_to "デヴェロッパーページ", '#' %></li>
+        <% else %>
+          <li><%= link_to "デヴェロッパーログイン", '#' %></li>
+        <% end %>
       <% end %>
-
+      
       <%#スマホだったら %>
       <% if request.smart_phone? %>
         <%= render 'layouts/dropmenu' %>
