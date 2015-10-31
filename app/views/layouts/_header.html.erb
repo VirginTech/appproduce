@@ -20,7 +20,7 @@
       <% if user_logged_in? %>
         <li><%= link_to "ユーザーページ", current_user %></li>
       <% else %>
-        <li><%= link_to "ユーザーログイン", login_path %></li>
+        <li><%= link_to "ユーザーログイン", user_login_path %></li>
       <% end %>
       
       <% if !user_logged_in? %>

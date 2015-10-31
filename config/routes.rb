@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root to: 'top_pages#top'
   
-  get 'signup',  to: 'users#new'
+  get 'user_signup',  to: 'users#new'
   
-  get    'login' , to: 'user_sessions#new'
-  post   'login' , to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
+  get    'user_login' , to: 'user_sessions#new'
+  post   'user_login' , to: 'user_sessions#create'
+  delete 'user_logout', to: 'user_sessions#destroy'
 
   resources :users
   resources :user_sessions, only: [:new, :create, :destroy]
