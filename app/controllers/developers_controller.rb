@@ -11,6 +11,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(developer_params)
     if @developer.save
+      session[:developer_id] = @developer.id
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @developer # ここを修正
     else
