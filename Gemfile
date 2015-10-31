@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #追加分
 gem 'bootstrap-sass'
+gem 'jpmobile'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
