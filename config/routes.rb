@@ -2,13 +2,22 @@ Rails.application.routes.draw do
 
   root to: 'top_pages#top'
   
+  #=====================
+  #サインアップ
+  #=====================
   get 'user_signup',  to: 'users#new'
-  
+  get 'developer_signup',  to: 'developers#new'
+
+  #=====================
+  #セッション（ログイン）
+  #=====================
   get    'user_login' , to: 'user_sessions#new'
   post   'user_login' , to: 'user_sessions#create'
   delete 'user_logout', to: 'user_sessions#destroy'
 
+
   resources :users
+  resources :developers
   resources :user_sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
