@@ -1,4 +1,8 @@
 <h1>
-  <%#= gravatar_for @developer %>
+  <%= gravatar_for @developer %>
   <%= @developer.developername %>
 </h1>
+
+<center>
+  <%= link_to "ログアウト", dev_logout_path, method: "delete" %>
+</center>

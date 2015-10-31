@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #サインアップ
   #=====================
   get 'user_signup',  to: 'users#new'
-  get 'developer_signup',  to: 'developers#new'
+  get 'dev_signup',  to: 'developers#new'
 
   #=====================
   #セッション（ログイン）
@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   post   'user_login' , to: 'user_sessions#create'
   delete 'user_logout', to: 'user_sessions#destroy'
 
+  get    'dev_login' , to: 'dev_sessions#new'
+  post   'dev_login' , to: 'dev_sessions#create'
+  delete 'dev_logout', to: 'dev_sessions#destroy'
+
 
   resources :users
   resources :developers
   resources :user_sessions, only: [:new, :create, :destroy]
+  resources :dev_sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

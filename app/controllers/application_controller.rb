@@ -4,12 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   include Jpmobile::ViewSelector
-  
-  include SessionsHelper
+  include UserSessionsHelper
+  include DevSessionsHelper
 
   private
   def logged_in_user
     unless user_logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  def logged_in_developer
+    unless dev_logged_in?
       store_location
       flash[:danger] = "Please log in."
       redirect_to login_url
