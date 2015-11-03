@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'dev_signup',  to: 'developers#new'
 
   #=====================
+  #SNSサインアップ
+  #=====================
+  get '/auth/:provider/callback' => 'user_sessions#create_sns_login'
+
+  #=====================
   #セッション（ログイン）
   #=====================
   get    'user_login' , to: 'user_sessions#new'

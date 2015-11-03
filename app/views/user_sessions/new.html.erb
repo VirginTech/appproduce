@@ -14,5 +14,11 @@
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", user_signup_path %></p>
+    
+    <center>
+      [ <%= link_to 'Twitterでログイン', '/auth/twitter' %> ]
+      [ <%= link_to 'Facebookでログイン', '/auth/facebook' %> ]
+    </center>
+    
   </div>
 </div>
