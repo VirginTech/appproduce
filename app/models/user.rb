@@ -19,7 +19,13 @@ class User < ActiveRecord::Base
   def self.find_or_create_from_auth(auth)
     provider=auth[:provider]
     uid=auth[:uid]
-    nickname=auth[:info][:nickname]
+    if provider == "twitter"
+      nickname=auth[:info][:nickname]
+    elsif provider == "facebook"
+      nickname=auth[:info][:name]
+    else
+      
+    end
     image_url=auth[:info][:image]
     
     # レコードには全定義を入れる必要あり
