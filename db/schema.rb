@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031153929) do
+ActiveRecord::Schema.define(version: 20151104120951) do
 
   create_table "developers", force: :cascade do |t|
     t.string   "developername"
@@ -22,6 +22,26 @@ ActiveRecord::Schema.define(version: 20151031153929) do
   end
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "developer_id"
+    t.string   "appname"
+    t.text     "summary"
+    t.text     "description"
+    t.boolean  "price"
+    t.integer  "model"
+    t.string   "img_icon"
+    t.string   "img_screenshot_01"
+    t.string   "img_screenshot_02"
+    t.string   "img_screenshot_03"
+    t.string   "img_screenshot_04"
+    t.string   "img_screenshot_05"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "products", ["developer_id", "created_at"], name: "index_products_on_developer_id_and_created_at"
+  add_index "products", ["developer_id"], name: "index_products_on_developer_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"

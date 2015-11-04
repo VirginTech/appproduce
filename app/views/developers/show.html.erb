@@ -4,5 +4,9 @@
 </h1>
 
 <center>
+  <%= link_to "アプリ登録", new_product_path %>
+  <br>
+  <%= link_to "デベロッパー情報編集", edit_developer_path(@developer) %>
+  <br>
   <%= link_to "ログアウト", dev_logout_path, method: "delete" %>
 </center>

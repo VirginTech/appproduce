@@ -4,5 +4,7 @@
 </h1>
 
 <center>
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+  <br>
   <%= link_to "ログアウト", user_logout_path, method: "delete" %>
 </center>

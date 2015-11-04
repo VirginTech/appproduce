@@ -1,0 +1,29 @@
+<h1>デベロッパー情報編集</h1>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+      <%= form_for(@developer) do |f| %>
+      
+          <%= render 'shared/error_messages', object: f.object %> <!-- ここを追加 -->
+
+          <br />
+          <%= f.label "開発者名" %>
+          <%= f.text_field :developername, :size=>"30" , class: 'form-control'%>
+
+          <%= f.label "Eメール" %>
+          <%= f.text_field :email, :size=>"40", class: 'form-control'%>
+
+          <%= f.label "パスワード" %>
+          <%= f.password_field :password, :size=>"40", class: 'form-control'%>
+
+          <%= f.submit "確　定", class:"btn btn-sm btn-primary" %>
+      
+      <% end %>
+    
+  </div>
+</div>
+
+<hr />

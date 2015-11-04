@@ -24,9 +24,10 @@ Rails.application.routes.draw do
   post   'dev_login' , to: 'dev_sessions#create'
   delete 'dev_logout', to: 'dev_sessions#destroy'
 
-
+  
   resources :users
   resources :developers
+  resources :products
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :dev_sessions, only: [:new, :create, :destroy]
 
