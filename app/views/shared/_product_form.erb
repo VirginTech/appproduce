@@ -7,6 +7,22 @@
       <%= f.label :appname %>
       <%= f.text_field :appname %>
       
+      <%= f.label :summary %>
+      <%= f.text_area :summary, :size=>"70x3" %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, :size=>"70x6" %>
+      
+      <%= f.label :price %>
+      <%= select :product, :price, [["無料", false], ["有料", true]], :selected => @product.price %>
+      
+      <%= f.label :model %>
+      <%= select :product, :model, [["iPhone", 0], ["Android", 1], ["Web", 2]], :selected => @product.model %>
+      
+      <%= f.label :img_icon %>
+      <%= f.file_field :img_icon, onchange:"fileChange(event,'disp')" %>
+      <div id="disp"></div>
+          
       <%= f.submit "Post", class: "btn btn-primary" %>
     <% end %>
   </div>

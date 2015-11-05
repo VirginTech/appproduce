@@ -1,5 +1,8 @@
 class Product < ActiveRecord::Base
+  
   belongs_to :developer
+  
+  mount_uploader :img_icon, ImageUploader
   
   #========================
   #バリデーション

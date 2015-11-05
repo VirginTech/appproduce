@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
   
-  before_action :logged_in_developer, only: [:create]
+  before_action :logged_in_developer, only: [:create, :edit]
   
+  def edit
+    @product = current_developer.products.find(params[:id])
+  end
+
   def new
     #binding.pry
     @product = current_developer.products.build if dev_logged_in?  
@@ -13,7 +17,7 @@ class ProductsController < ApplicationController
       flash[:success] = "新規アプリを登録しました！"
       redirect_to root_url
     else
-      render 'top_pages/top'
+      render 'new'
     end
   end
   

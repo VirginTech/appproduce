@@ -4,6 +4,7 @@ class DevelopersController < ApplicationController
   
   def show # 追加
     @developer = Developer.find(params[:id])
+    @products = @developer.products
   end
   
   def new
