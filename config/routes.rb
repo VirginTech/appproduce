@@ -24,7 +24,12 @@ Rails.application.routes.draw do
   post   'dev_login' , to: 'dev_sessions#create'
   delete 'dev_logout', to: 'dev_sessions#destroy'
 
-  
+  #=====================
+  #アプリ検索用
+  #=====================
+  get 'top_pages/search', to: 'top_pages#search'
+
+
   resources :users
   resources :developers
   resources :products

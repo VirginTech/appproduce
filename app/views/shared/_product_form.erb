@@ -12,12 +12,24 @@
       
       <%= f.label :description %>
       <%= f.text_area :description, :size=>"70x6" %>
-      
+
+      <%= f.label :category %>
+      <%= select :product, :category, [ ["カテゴリー１", 1], 
+                                        ["カテゴリー２", 2], 
+                                        ["カテゴリー３", 3], 
+                                        ["カテゴリー４", 4], 
+                                        ["カテゴリー５", 5], 
+                                        ["カテゴリー６", 6], 
+                                        ["カテゴリー７", 7], 
+                                        ["カテゴリー８", 8], 
+                                        ["カテゴリー９", 9]], 
+                                        :selected => @product.category %>
+
       <%= f.label :price %>
-      <%= select :product, :price, [["無料", false], ["有料", true]], :selected => @product.price %>
+      <%= select :product, :price, [["無料", 1], ["有料", 2]], :selected => @product.price %>
       
       <%= f.label :model %>
-      <%= select :product, :model, [["iPhone", 0], ["Android", 1], ["Web", 2]], :selected => @product.model %>
+      <%= select :product, :model, [["iPhone", 1], ["Android", 2], ["Web", 3]], :selected => @product.model %>
       
       <%= f.label :img_icon %>
       <%= f.file_field :img_icon, onchange:"fileChange(event,'disp')" %>

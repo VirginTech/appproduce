@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
   include Jpmobile::ViewSelector
   include UserSessionsHelper
   include DevSessionsHelper
-
+  
+  $category = [1,2,3,4,5,6,7,8,9]
+  $model = [1,2,3]
+  $price = [1,2]
+  
   private
   def logged_in_user
     unless user_logged_in?

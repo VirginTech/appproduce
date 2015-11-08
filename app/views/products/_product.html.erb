@@ -1,3 +1,14 @@
 <div>
-  <%= link_to product.appname,edit_product_path(product) %>
+  <section class="user_info">
+    <%= image_tag product.img_icon.url,:size => '80x80'  ,class: "gravatar" %>
+    <%# # トップ・サーチページならアプリ詳細ページへ%>
+    <% if current_page?(root_path) or current_page?(top_pages_search_path) %>
+      <%= link_to product.appname, product_path(product) %><br />
+      <%= product.summary %>
+    <% else # デベロッパーページならエディットページへ%>
+      <%= link_to product.appname, edit_product_path(product) %><br />
+      <%= product.summary %>
+    <% end %>
+  </section>
+  <hr />
 </div>

@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
   #========================
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { self.email = email.downcase }
-  validates :nickname, presence: true, length: { maximum: 50 }, on: :registration
+  validates :nickname, presence: true, length: { maximum: 50 }, on: [:registration,:update]
   validates :email, presence: true, length: { maximum: 255 },
                                       format: { with: VALID_EMAIL_REGEX },
                                       uniqueness: { case_sensitive: false },
-                                      on: :registration
+                                      on: [:registration,:update]
   
   #=====================================================
   #OAuthの情報からユーザーを検索し、なければ新規レコード作成

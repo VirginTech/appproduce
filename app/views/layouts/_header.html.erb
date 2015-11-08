@@ -19,7 +19,15 @@
       <%#ユーザーログイン判定 %>
       <% if !dev_logged_in? %>
         <% if user_logged_in? %>
-          <li><%= link_to "ユーザーページ", current_user %></li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nickname %> <b class="caret" id="headerdropmenu"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "マイページ", current_user %></li>
+              <li><%= link_to "アカウント編集", edit_user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", user_logout_path, method: "delete" %></li>
+            </ul>
+          </li>
         <% else %>
           <li><%= link_to "ユーザーログイン", user_login_path %></li>
         <% end %>
@@ -28,14 +36,21 @@
       <%#デベロッパーログイン判定 %>
       <% if !user_logged_in? %>
         <% if dev_logged_in? %>
-          <li><%= link_to "デヴェロッパーページ", current_developer %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_developer.developername %> <b class="caret" id="headerdropmenu"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "マイページ", current_developer %></li>
+              <li><%= link_to "アカウント編集", edit_developer_path(current_developer) %></li>
+              <li><%= link_to "ログアウト", dev_logout_path, method: "delete" %></li>
+            </ul>
+          </li>
         <% else %>
           <li><%= link_to "デヴェロッパーログイン", dev_login_path %></li>
         <% end %>
       <% end %>
       
-      <%#スマホでトップページだったら %>
-      <% if current_page?(root_path) %>
+      <%#スマホでトップ・サーチページだったら %>
+      <% if current_page?(root_path) or current_page?(top_pages_search_path) %>
         <% if request.smart_phone? %>
           <%= render 'layouts/dropmenu' %>
         <% end %>

@@ -1,14 +1,17 @@
-<h1>
-  <%= gravatar_for @developer %>
-  <%= @developer.developername %>
-</h1>
-
-<center>
-  <%= render @products %>
-  <hr />
-  <%= link_to "アプリ登録", new_product_path %>
-  <br>
-  <%= link_to "デベロッパー情報編集", edit_developer_path(@developer) %>
-  <br>
-  <%= link_to "ログアウト", dev_logout_path, method: "delete" %>
-</center>
+<% if dev_logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/developer_info' %>
+      </section>
+      <%= link_to "新規アプリ登録", new_product_path %>
+    </aside>
+    
+    <!-- 登録アプリ表示 -->
+    <div class="col-md-8">
+      <h3><%= @developer.developername %>さんの登録アプリ(<%= @developer.products.count %>)</h3>
+      <hr />
+        <%= render @products %>
+    </div>
+  </div>
+<% end %>

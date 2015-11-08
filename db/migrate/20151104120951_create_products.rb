@@ -5,7 +5,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string :appname
       t.text :summary
       t.text :description
-      t.boolean :price
+      t.integer :category
+      t.integer :price
       t.integer :model
       t.string :img_icon
       t.string :img_screenshot_01
