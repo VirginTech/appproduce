@@ -1,0 +1,20 @@
+<h1>
+  <%=image_tag @product.img_icon.url,:size => '80x80' %>
+  <%=@product.appname %>
+</h1>
+
+<center>
+  <table width=500>
+    <td>
+      <hr />
+      概要:<br />
+      <%= @product.summary %><br />
+      
+      詳細:<br />
+      <%= @product.description %><br />
+      
+      <hr />
+      
+    <td />
+  </table>
+</center>

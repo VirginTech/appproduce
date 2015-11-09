@@ -5,18 +5,16 @@
   </aside>
   
   <div class="col-md-8">
-    <div class="col-md-8">
-      
-      <% if !request.smart_phone? %>
-        <%=render 'search_navi' %>
-      <% end %>
-      
-      カテゴリ:<%=@category_name %> 機種名:<%=@model_name%> 価格:<%=@price_name%>
-      <hr />
-      <%# こちらはダメ！= render partial: 'products/top_product', collection: @products %>
-      <% @products.each do |product| %>
-        <%= render partial: 'products/product', locals: { product: product } %>
-      <% end %>
-    </div>
+    
+    <% if !request.smart_phone? %>
+      <%=render 'search_navi' %>
+    <% end %>
+    
+    カテゴリ:<%=@category_name %> 機種名:<%=@model_name%> 価格:<%=@price_name%>
+    <hr />
+    <%# こちらはダメ！= render partial: 'products/top_product', collection: @products %>
+    <% @products.each do |product| %>
+      <%= render partial: 'products/product', locals: { product: product } %>
+    <% end %>
   </div>
 </div>

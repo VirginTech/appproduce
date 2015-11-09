@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   
   before_action :logged_in_developer, only: [:create]
-  before_action :set_product, only: [:edit, :update]
+  before_action :set_product, only: [:edit, :update, :show]
+  
+  def show
+  end  
   
   def edit
     #set_productしてる

@@ -21,6 +21,7 @@ class TopPagesController < ApplicationController
   end
   
   def getName
+    
     if $category=="1"
       @category_name="カテゴリ１"
     elsif $category=="2"
