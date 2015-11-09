@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   
-  before_action :set_profile, only: [:edit, :update]
+  before_action :set_profile, only: [:edit, :update, :show]
   
   def show # 追加
-   @user = User.find(params[:id])
+   @products=@user.bookmarking_products
   end
   
   def new

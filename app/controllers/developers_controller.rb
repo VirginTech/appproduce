@@ -1,10 +1,10 @@
 class DevelopersController < ApplicationController
   
-  before_action :set_profile, only: [:edit, :update]
+  before_action :set_profile, only: [:edit, :update, :show]
   
   def show # 追加
-    @developer = Developer.find(params[:id])
     @products = @developer.products
+    $app_edit_flg = true
   end
   
   def new

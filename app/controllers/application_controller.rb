@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   $model = [1,2,3]
   $price = [1,2]
   
+  $app_edit_flg = false
+  
   private
   def logged_in_user
     unless user_logged_in?

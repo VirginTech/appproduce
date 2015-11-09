@@ -4,6 +4,9 @@
 </h1>
 
 <center>
+  
+  <font size=5>お気に入り数 (<%= @product.bookmarking_users.count %>)</font>
+  
   <table width=500>
     <td>
       <hr />
@@ -14,6 +17,14 @@
       <%= @product.description %><br />
       
       <hr />
+      
+      <% if user_logged_in? %>
+        <% if current_user.bookmarking?(@product) %>
+          <%= link_to "お気に入り解除" ,bookmark_path(@product, redirect_url: request.url), method: :delete %>
+        <% else %>
+          <%= link_to "お気に入り登録" ,bookmarks_path(product_id: @product.id, redirect_url: request.url), method: :post %>
+        <% end %>
+      <% end %>
       
     <td />
   </table>

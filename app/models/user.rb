@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  has_many :products
+  
   has_secure_password
   
   #========================
@@ -37,6 +39,29 @@ class User < ActiveRecord::Base
       user.email = ' ' # 何か入れないと「rollback transaction」で保存されない!
       user.password = ' ' # 何か入れないと「rollback transaction」で保存されない!
     end
+  end
+  
+  #===========================
+  #お気に入り(正引：ユーザー〜プロダクト)
+  #===========================
+  has_many :forward_bookmarks_relationship, class_name:  "Bookmark",
+                                            foreign_key: "user_id",
+                                            dependent:   :destroy
+  has_many :bookmarking_products, through: :forward_bookmarks_relationship, source: :product
+  
+  # アプリをブックマークする
+  def bookmarking(other_product)
+    forward_bookmarks_relationship.create(product_id: other_product.id)
+  end
+
+  # ブックマークを解除する
+  def unbookmarking(other_product)
+    forward_bookmarks_relationship.find_by(product_id: other_product.id).destroy
+  end
+
+  # アプリをブックマークしてるかどうか？
+  def bookmarking?(other_product)
+    bookmarking_products.include?(other_product)
   end
   
 end

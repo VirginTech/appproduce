@@ -5,8 +5,10 @@ class TopPagesController < ApplicationController
   
     $category = [1,2,3,4,5,6,7,8,9]
     $model = [1,2,3]
-    $price = [1,2]    
-  
+    $price = [1,2]
+    
+    $app_edit_flg = false
+    
     self.getName()
   end
   
