@@ -1,14 +1,18 @@
-<h1>
-  <%=image_tag @product.img_icon.url,:size => '80x80' %>
-  <%=@product.appname %>
-</h1>
+<div class="row">
+  <aside class="col-md-3">
+  </aside>
+  
+  <div class="col-md-6">
+    <h1>
+      <%=image_tag @product.img_icon.url,:size => '80x80' %>
+      <%=@product.appname %>
+    </h1>
+    
+    
+      
+    <font size=5>お気に入り数 (<%= @product.bookmarking_users.count %>)</font>
+    
 
-<center>
-  
-  <font size=5>お気に入り数 (<%= @product.bookmarking_users.count %>)</font>
-  
-  <table width=500>
-    <td>
       <hr />
       概要:<br />
       <%= @product.summary %><br />
@@ -18,14 +22,41 @@
       
       <hr />
       
+      <!-- お気に入り登録 -->
       <% if user_logged_in? %>
         <% if current_user.bookmarking?(@product) %>
           <%= link_to "お気に入り解除" ,bookmark_path(@product, redirect_url: request.url), method: :delete %>
         <% else %>
           <%= link_to "お気に入り登録" ,bookmarks_path(product_id: @product.id, redirect_url: request.url), method: :post %>
         <% end %>
+      <hr />
+      <% end %>
+
+      <!-- コメントフォーム -->
+      <% if user_logged_in? %>
+      <%# ユーザーがまだコメントしてなければフォーム表示 %>
+        <% unless @comments.pluck(:user_id).include?(current_user.id) %>
+          コメント:<br />
+          <%= form_for(@comment) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <div class="field">
+              <%= f.text_area :comment, placeholder: "コメントを入力して下さい..." %>
+              <%= f.hidden_field :product_id, :value => @product.id %>
+            </div>
+            <%= f.submit "Post", class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
       <% end %>
       
-    <td />
-  </table>
-</center>
+      <div style="margin-top: 30px;" >
+        コメント一覧:
+        <ul>
+          <%= render @comments %>
+        </ul>
+      </div>
+      
+    <div class="col-md-3">
+    </div>  
+  
+  </div>
+</div>

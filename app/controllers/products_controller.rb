@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show]
   
   def show
+    @comment = current_user.comments.build if user_logged_in?
+    # has_manyを使うべし
+    @comments = @product.comments
+    #@comments = Comment.all.where(product_id: params[:id]) #一応こちらでもいける
   end  
   
   def edit

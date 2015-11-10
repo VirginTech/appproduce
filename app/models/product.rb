@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   belongs_to :user
   belongs_to :developer
   
+  has_many :comments;
+  
   mount_uploader :img_icon, ImageUploader
   
   #========================
