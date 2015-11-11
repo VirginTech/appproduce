@@ -50,7 +50,9 @@
       <% end %>
       
       <%#スマホでトップ・サーチページだったら %>
-      <% if current_page?(root_path) or current_page?(top_pages_search_path) %>
+      <% if current_page?(root_path) or \
+                            current_page?(top_pages_search_path) or \
+                                                current_page?(top_pages_sort_path) %>
         <% if request.smart_phone? %>
           <%= render 'layouts/dropmenu' %>
         <% end %>

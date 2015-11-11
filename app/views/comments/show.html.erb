@@ -12,10 +12,10 @@
     
     <!-- お気に入り表示 -->
     <div class="col-md-8">
-      <h3><%= @user.nickname %>さんのお気に入り</h3>
+      <h3><%= @user.nickname %>さんのコメント</h3>
       <hr />
-      <% @products.each do |product| %>
-        <%= render partial: 'products/product', locals: { product: product } %>
+      <% @comments.each do |comment| %>
+        <%= render partial: 'comments/comment', locals: { comment: comment } %>
       <% end %>
       
     </div>

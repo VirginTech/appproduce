@@ -12,6 +12,22 @@ class TopPagesController < ApplicationController
     self.getName()
   end
   
+  def sort
+    if params[:order]=="0"
+      @sort_name="新着順"
+      @products = Product.all.order(created_at: :desc)
+    else
+      @sort_name="ランキング順"
+      bookmarked_ids = Bookmark.group(:product_id)
+                                .order('count_product_id desc')
+                                .count('product_id')
+                                .keys
+      #binding.pry
+      bookmarked_ids += Product.pluck(:id) - bookmarked_ids
+      @products = Product.find(bookmarked_ids).sort_by{|o| bookmarked_ids.index(o.id)}
+    end
+  end
+  
   def search
     #binding.pry
     $category = params[:category] if params[:category]!=nil 

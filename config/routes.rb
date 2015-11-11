@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   #アプリ検索用
   #=====================
   get 'top_pages/search', to: 'top_pages#search'
+  get 'top_pages/sort', to: 'top_pages#sort'
 
 
   resources :users
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :dev_sessions, only: [:new, :create, :destroy]
   resources :bookmarks, only: [:create, :destroy]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
