@@ -12,7 +12,7 @@
       
       <%= f.label :description %>
       <%= f.text_area :description, :size=>"70x6" %>
-
+      
       <%= f.label :category %>
       <%= select :product, :category, [ ["カテゴリー１", 1], 
                                         ["カテゴリー２", 2], 
@@ -22,14 +22,37 @@
                                         ["カテゴリー６", 6], 
                                         ["カテゴリー７", 7], 
                                         ["カテゴリー８", 8], 
-                                        ["カテゴリー９", 9]], 
+                                        ["カテゴリー９", 9] ], 
                                         :selected => @product.category %>
 
       <%= f.label :price %>
       <%= select :product, :price, [["無料", 1], ["有料", 2]], :selected => @product.price %>
       
-      <%= f.label :model %>
-      <%= select :product, :model, [["iPhone", 1], ["Android", 2], ["Web", 3]], :selected => @product.model %>
+      <%= f.label "対応機種" %>
+      <table border=0>
+        <tr>
+          <td width=20>
+            <%= f.check_box :model_iphone, :checked => @product.model_iphone %>
+          </td>
+          <td width=100>
+            iPhone
+          </td>
+        
+          <td width=20>
+            <%= f.check_box :model_android, :checked => @product.model_android %>
+          </td>
+          <td width=100>
+            Android
+          </td>
+        
+          <td width=20>
+            <%= f.check_box :model_web, :checked => @product.model_web %>
+          </td>
+          <td width=100>
+            Web
+          </td>
+        </tr>
+      </table>
       
       <%= f.label :img_icon %>
       <%= f.file_field :img_icon, onchange:"fileChange(event,'disp')" %>

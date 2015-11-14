@@ -8,8 +8,11 @@ class ApplicationController < ActionController::Base
   include DevSessionsHelper
   
   $category = [1,2,3,4,5,6,7,8,9]
-  $model = [1,2,3]
   $price = [1,2]
+  
+  $model_iphone = [true,false]
+  $model_android = [true,false]
+  $model_web = [true,false]
   
   $app_edit_flg = false
   

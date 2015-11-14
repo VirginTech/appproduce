@@ -4,9 +4,12 @@ class TopPagesController < ApplicationController
     @products=Product.all
   
     $category = [1,2,3,4,5,6,7,8,9]
-    $model = [1,2,3]
     $price = [1,2]
-    
+  
+    $model_iphone = [true,false]
+    $model_android = [true,false]
+    $model_web = [true,false]
+  
     $app_edit_flg = false
     
     self.getName()
@@ -29,12 +32,30 @@ class TopPagesController < ApplicationController
   end
   
   def search
+    
     #binding.pry
     $category = params[:category] if params[:category]!=nil 
-    $model = params[:model] if params[:model]!=nil 
     $price = params[:price] if params[:price]!=nil
     
-    @products = Product.where(category: $category, model: $model, price: $price)
+    if params[:model]!=nil
+      $model_iphone=[true,false]
+      $model_android=[true,false]
+      $model_web=[true,false]
+      if params[:model]=="1" 
+        $model_iphone=true
+      elsif params[:model]=="2" 
+        $model_android=true
+      elsif params[:model]=="3"
+        $model_web=true
+      end
+    end
+
+    @products = Product.where(category: $category, 
+                              model_iphone: $model_iphone, 
+                              model_android: $model_android, 
+                              model_web: $model_web, 
+                              price: $price)
+
     self.getName()
   end
   
@@ -61,16 +82,6 @@ class TopPagesController < ApplicationController
     else
       @category_name="すべて"
     end
-    
-    if $model=="1"
-      @model_name="iPhone"
-    elsif $model=="2"
-      @model_name="Android"
-    elsif $model=="3"
-      @model_name="Webゲーム"
-    else
-      @model_name="すべて"
-    end
 
     if $price=="1"
       @price_name="無料"
@@ -79,6 +90,17 @@ class TopPagesController < ApplicationController
     else
       @price_name="すべて"
     end
+    
+    if $model_iphone==true
+      @model_name="iPhone"
+    elsif $model_android==true
+      @model_name="Android"
+    elsif $model_web==true
+      @model_name="Webゲーム"
+    else
+      @model_name="すべて"
+    end
+
   end
   
 end

@@ -7,7 +7,9 @@ class CreateProducts < ActiveRecord::Migration
       t.text :description
       t.integer :category
       t.integer :price
-      t.integer :model
+      t.boolean :model_iphone
+      t.boolean :model_android
+      t.boolean :model_web
       t.string :img_icon
       t.string :img_screenshot_01
       t.string :img_screenshot_02

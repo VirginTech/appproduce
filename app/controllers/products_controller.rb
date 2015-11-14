@@ -41,8 +41,20 @@ class ProductsController < ApplicationController
   
   private
   def product_params
-    params.require(:product).permit(:appname,:summary,:description,:category,:price,:model,:img_icon,
-          :img_screenshot_01,:img_screenshot_02,:img_screenshot_03,:img_screenshot_04,:img_screenshot_05)
+    params.require(:product).permit(:appname,
+                                    :summary,
+                                    :description,
+                                    :category,
+                                    :price,
+                                    :model_iphone,
+                                    :model_android,
+                                    :model_web,
+                                    :img_icon,
+                                    :img_screenshot_01,
+                                    :img_screenshot_02,
+                                    :img_screenshot_03,
+                                    :img_screenshot_04,
+                                    :img_screenshot_05)
   end
   
   def set_product
