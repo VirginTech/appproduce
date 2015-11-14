@@ -45,6 +45,7 @@ gem 'sqlite3', group: :development
 gem 'pg', group: :production # 本番ではpostgressを使用する
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'fastimage'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

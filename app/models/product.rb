@@ -6,6 +6,11 @@ class Product < ActiveRecord::Base
   has_many :comments;
   
   mount_uploader :img_icon, ImageUploader
+  mount_uploader :img_screenshot_01, ImageUploader
+  mount_uploader :img_screenshot_02, ImageUploader
+  mount_uploader :img_screenshot_03, ImageUploader
+  mount_uploader :img_screenshot_04, ImageUploader
+  mount_uploader :img_screenshot_05, ImageUploader
   
   #========================
   #バリデーション

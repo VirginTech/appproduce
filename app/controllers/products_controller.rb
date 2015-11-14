@@ -13,6 +13,10 @@ class ProductsController < ApplicationController
   def edit
     #set_productしてる
     #@product = current_developer.products.find(params[:id])
+    
+    #binding.pry
+    image=FastImage.new(@product.img_screenshot_01.url)
+    size = image.size
   end
   
   def update
@@ -22,7 +26,8 @@ class ProductsController < ApplicationController
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
-    end  end
+    end
+  end
   
   def new
     #binding.pry

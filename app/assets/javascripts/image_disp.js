@@ -10,7 +10,7 @@
   //==============================
   //ファイル選択ダイアログ
   //==============================
-  function fileChange(event,tag) 
+  function fileChange(event,tag,width,height) 
   {
     var file = event.target.files[0];
     var disp = document.getElementById(tag);
@@ -41,8 +41,13 @@
       {
         var img = document.createElement('img');
         img.src = evt.target.result;
-        img.width=100;
-        img.height=100;
+        if(img.width>img.height){
+          img.width=height;
+          img.height=width;
+        }else{
+          img.width=width;
+          img.height=height;
+        }
         disp.appendChild(img);
         //name.innerHTML = file.name;
       }
