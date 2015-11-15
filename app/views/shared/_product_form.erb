@@ -63,7 +63,7 @@
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_01, onchange:"fileChange(event,'screen_01',320,568)" %>
       <div id="screen_01">
-        <% if @image_size[0] > @image_size[1] %>
+        <% if @image_size_01[0] > @image_size_01[1] %>
           <%= image_tag @product.img_screenshot_01.url,:size => '568x320'  %>
         <% else %>
           <%= image_tag @product.img_screenshot_01.url,:size => '320x568'  %>
@@ -73,25 +73,41 @@
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_02, onchange:"fileChange(event,'screen_02',320,568)" %>
       <div id="screen_02">
-        <%= image_tag @product.img_screenshot_02.url,:size => '320x568'  %>
+        <% if @image_size_02[0] > @image_size_02[1] %>
+          <%= image_tag @product.img_screenshot_02.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_02.url,:size => '320x568'  %>
+        <% end %>
       </div>
 
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_03, onchange:"fileChange(event,'screen_03',320,568)" %>
       <div id="screen_03">
-        <%= image_tag @product.img_screenshot_03.url,:size => '320x568'  %>
+        <% if @image_size_03[0] > @image_size_03[1] %>
+          <%= image_tag @product.img_screenshot_03.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_03.url,:size => '320x568'  %>
+        <% end %>
       </div>
 
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_04, onchange:"fileChange(event,'screen_04',320,568)" %>
       <div id="screen_04">
-        <%= image_tag @product.img_screenshot_04.url,:size => '320x568'  %>
+        <% if @image_size_04[0] > @image_size_04[1] %>
+          <%= image_tag @product.img_screenshot_04.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_04.url,:size => '320x568'  %>
+        <% end %>
       </div>
           
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_05, onchange:"fileChange(event,'screen_05',320,568)" %>
       <div id="screen_05">
-        <%= image_tag @product.img_screenshot_05.url,:size => '320x568'  %>
+        <% if @image_size_05[0] > @image_size_05[1] %>
+          <%= image_tag @product.img_screenshot_05.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_05.url,:size => '320x568'  %>
+        <% end %>
       </div>
 
       <%= f.submit "Post", class: "btn btn-primary" %>

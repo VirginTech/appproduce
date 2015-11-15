@@ -12,11 +12,35 @@ class ProductsController < ApplicationController
   
   def edit
     #binding.pry
-    image=FastImage.new(@product.img_screenshot_01.url)
-    if image.size==nil
-      @image_size = [320,568]
+    image_01=FastImage.new(@product.img_screenshot_01.url)
+    if image_01.size==nil
+      @image_size_01 = [320,568]
     elsif 
-      @image_size = image.size
+      @image_size_01 = image_01.size
+    end
+    image_02=FastImage.new(@product.img_screenshot_02.url)
+    if image_02.size==nil
+      @image_size_02 = [320,568]
+    elsif 
+      @image_size_02 = image_02.size
+    end
+    image_03=FastImage.new(@product.img_screenshot_03.url)
+    if image_03.size==nil
+      @image_size_03 = [320,568]
+    elsif 
+      @image_size_03 = image_03.size
+    end
+    image_04=FastImage.new(@product.img_screenshot_04.url)
+    if image_04.size==nil
+      @image_size_04 = [320,568]
+    elsif 
+      @image_size_04 = image_04.size
+    end
+    image_05=FastImage.new(@product.img_screenshot_05.url)
+    if image_05.size==nil
+      @image_size_05 = [320,568]
+    elsif 
+      @image_size_05 = image_05.size
     end
   end
   
@@ -33,6 +57,11 @@ class ProductsController < ApplicationController
   def new
     #binding.pry
     @product = current_developer.products.build if dev_logged_in?  
+    @image_size_01 = [320,568]
+    @image_size_02 = [320,568]
+    @image_size_03 = [320,568]
+    @image_size_04 = [320,568]
+    @image_size_05 = [320,568]
   end
   
   def create
