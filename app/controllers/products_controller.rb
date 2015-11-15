@@ -11,12 +11,13 @@ class ProductsController < ApplicationController
   end  
   
   def edit
-    #set_productしてる
-    #@product = current_developer.products.find(params[:id])
-    
     #binding.pry
     image=FastImage.new(@product.img_screenshot_01.url)
-    size = image.size
+    if image.size==nil
+      @image_size = [320,568]
+    elsif 
+      @image_size = image.size
+    end
   end
   
   def update

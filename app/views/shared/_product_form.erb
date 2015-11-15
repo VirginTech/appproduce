@@ -63,7 +63,11 @@
       <%= f.label "スクリーンショット" %>
       <%= f.file_field :img_screenshot_01, onchange:"fileChange(event,'screen_01',320,568)" %>
       <div id="screen_01">
-        <%= image_tag @product.img_screenshot_01.url,:size => '320x568'  %>
+        <% if @image_size[0] > @image_size[1] %>
+          <%= image_tag @product.img_screenshot_01.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_01.url,:size => '320x568'  %>
+        <% end %>
       </div>
 
       <%= f.label "スクリーンショット" %>
