@@ -14,6 +14,41 @@
     
 
       <hr />
+      
+      <div style="border:solid 0px; height:568px; width:600px; overflow:auto; white-space:nowrap;">
+        
+        <% if @image_size_01[0] > @image_size_01[1] %>
+          <%= image_tag @product.img_screenshot_01.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_01.url,:size => '320x568'  %>
+        <% end %>
+        
+        <% if @image_size_02[0] > @image_size_02[1] %>
+          <%= image_tag @product.img_screenshot_02.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_02.url,:size => '320x568'  %>
+        <% end %>
+  
+        <% if @image_size_03[0] > @image_size_03[1] %>
+          <%= image_tag @product.img_screenshot_03.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_03.url,:size => '320x568'  %>
+        <% end %>
+  
+        <% if @image_size_04[0] > @image_size_04[1] %>
+          <%= image_tag @product.img_screenshot_04.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_04.url,:size => '320x568'  %>
+        <% end %>
+  
+        <% if @image_size_05[0] > @image_size_05[1] %>
+          <%= image_tag @product.img_screenshot_05.url,:size => '568x320'  %>
+        <% else %>
+          <%= image_tag @product.img_screenshot_05.url,:size => '320x568'  %>
+        <% end %>
+      </div>
+
+      <p /> 
       概要:<br />
       <%= @product.summary %><br />
       
