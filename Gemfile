@@ -41,6 +41,7 @@ gem 'pry-byebug', group: :development
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'sqlite3', group: :development
 gem 'pg', group: :production # 本番ではpostgressを使用する
 gem 'carrierwave'

@@ -27,5 +27,13 @@ class UserSessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
+  #=======================
+  #SNSログインキャンセル
+  #=======================
+  def failure
+    flash[:danger] = "認証に失敗しました。"
+    redirect_to root_url
+  end
   
 end

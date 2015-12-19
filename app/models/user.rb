@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
       nickname=auth[:info][:nickname]
     elsif provider == "facebook"
       nickname=auth[:info][:name]
+    elsif provider == "google_oauth2"
+      nickname=auth[:info][:name]
     else
       
     end
